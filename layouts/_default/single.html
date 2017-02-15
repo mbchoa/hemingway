@@ -2,8 +2,19 @@
 {{ partial "nav" . }}
 <section class="section">
   <div class="container">
-    <h2 class="subtitle is-6">{{ .Date.Format "January 2, 2006" }}</h2>
     <h1 class="title">{{ .Title }}</h1>
+    <div class="columns">
+      <h2 class="column is-2">{{ .Date.Format "January 2, 2006" }}</h2>
+      <h3 class="column is-2">
+        {{ .ReadingTime }}
+        {{ if le .ReadingTime 1 }} 
+          minute
+        {{ else }}
+          minutes
+        {{ end }}
+        read
+      </h3>
+    </div>
     <div class="content">
       {{ .Content }}
     </div>
